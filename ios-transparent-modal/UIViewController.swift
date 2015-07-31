@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIViewController {
-    func blur(fullScreenImageView: UIImageView) {
+    func blurAndDarkEffect(fullScreenImageView: UIImageView) {
         if let keyWindow = UIApplication.sharedApplication().keyWindow, size = UIApplication.sharedApplication().keyWindow?.bounds.size {
             UIGraphicsBeginImageContext(size)
             keyWindow.layer.renderInContext(UIGraphicsGetCurrentContext())

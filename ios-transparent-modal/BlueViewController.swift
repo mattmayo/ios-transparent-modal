@@ -13,7 +13,8 @@ class BlueViewController: UIViewController {
         self.blurImageView.alpha = 0
         self.blurImageView.tintColor = UIColor.blackColor()
         UIView.animateWithDuration(0.3) { () -> Void in
-            self.blur(self.blurImageView)
+            // Comment out line below for transparent
+            self.blurAndDarkEffect(self.blurImageView)
             self.blurImageView.alpha = 1
         }
         
