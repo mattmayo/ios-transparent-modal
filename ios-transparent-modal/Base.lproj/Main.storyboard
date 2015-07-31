@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Blue View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="blue-view-controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Blue View Controller" customClass="BlueViewController" customModule="ios_transparent_modal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hE-QR-ewg" userLabel="Blur Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5u-84-10V">
+                                <rect key="frame" x="258" y="285" width="85" height="30"/>
+                                <state key="normal" title="Open modal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openModalButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hNy-sF-AC1"/>
+                                    <segue destination="lUW-Fg-eST" kind="presentation" identifier="blue-to-modal" modalPresentationStyle="overCurrentContext" id="M0Z-0K-VxA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This should blur" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSw-8C-ZaI">
+                                <rect key="frame" x="239" y="120" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5hE-QR-ewg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="9pN-mu-Rz9"/>
+                            <constraint firstItem="DSw-8C-ZaI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="GLU-32-oro"/>
+                            <constraint firstAttribute="centerX" secondItem="DSw-8C-ZaI" secondAttribute="centerX" id="KBD-bC-Jum"/>
+                            <constraint firstAttribute="bottom" secondItem="5hE-QR-ewg" secondAttribute="bottom" id="PCt-QF-5dK"/>
+                            <constraint firstAttribute="centerX" secondItem="X5u-84-10V" secondAttribute="centerX" id="YAw-rL-8Wk"/>
+                            <constraint firstAttribute="trailing" secondItem="5hE-QR-ewg" secondAttribute="trailing" id="c6f-h0-vsZ"/>
+                            <constraint firstAttribute="centerY" secondItem="X5u-84-10V" secondAttribute="centerY" id="ifJ-oE-Xeh"/>
+                            <constraint firstItem="5hE-QR-ewg" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="uZo-jk-hUN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurImageView" destination="5hE-QR-ewg" id="a4k-eB-le2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Modal View Controller-->
+        <scene sceneID="K7w-rE-mG4">
+            <objects>
+                <viewController storyboardIdentifier="modal-view-controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lUW-Fg-eST" userLabel="Modal View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jPt-CD-PbF"/>
+                        <viewControllerLayoutGuide type="bottom" id="jQc-AE-m3v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DHE-mc-0Uk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGs-01-edJ">
+                                <rect key="frame" x="50" y="100" width="500" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLa-qT-ulk">
+                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="TpR-sU-Mfo" kind="unwind" unwindAction="unwindFromModal:" id="HnH-R4-Ah9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AGs-01-edJ" secondAttribute="trailing" constant="50" id="Fvt-4D-EH4"/>
+                            <constraint firstItem="jQc-AE-m3v" firstAttribute="top" secondItem="AGs-01-edJ" secondAttribute="bottom" constant="100" id="Utg-v5-1Kb"/>
+                            <constraint firstItem="AGs-01-edJ" firstAttribute="top" secondItem="DHE-mc-0Uk" secondAttribute="top" constant="100" id="epw-NS-MbV"/>
+                            <constraint firstItem="AGs-01-edJ" firstAttribute="leading" secondItem="DHE-mc-0Uk" secondAttribute="leading" constant="50" id="hWS-Fn-MJ7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0y6-9W-GDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TpR-sU-Mfo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1379" y="585"/>
+        </scene>
+    </scenes>
+</document>
